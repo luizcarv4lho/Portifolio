@@ -1,0 +1,695 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: #f4eedd;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(43, 42, 42);
+
+}
+
+.navbar-container {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(73, 72, 72);
+    padding: 16px 15px 16px 15px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+
+.navbar-container p {
+    text-transform: uppercase;
+    padding-top: 0px;
+    font-family: "Prompt", sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 600;
+
+}
+
+/* COLAPSE INICIO============================== */
+
+.navbar-colapse {
+    background-color: #000;
+    width: 100%;
+    display: none;
+    /*COLOCAR COMO FLEX NO RESPONSIVO*/
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.navbar-colapse img {
+    width: 20px;
+    height: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 14px;
+    margin-bottom: 10px;
+}
+
+.navbar-colapse .lista-colapse {
+    display: none;
+    /* colocar como BLOCK ao clicar no icone MENU*/
+}
+
+.navbar-colapse ul li a,
+.navbar-colapse ul li {
+    list-style: none;
+    text-decoration: none;
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.5s;
+    margin: 10px;
+}
+
+
+/* COLAPSE FIM=============================== */
+
+
+.navbar-items li {
+    display: inline;
+    padding: 0 10px;
+    list-style: none;
+}
+
+.navbar-items li a {
+    text-decoration: none;
+    font-family: "Prompt", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+
+.navbar-items li a:hover {
+    color: #cfcaca;
+    text-decoration: double;
+}
+
+.container-prompt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+}
+
+#prompt {
+    width: 50em;
+    height: 450px;
+    background-color: rgb(70, 69, 69);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 3px;
+}
+
+/* ===========EFEITO RGB PROMPT=========== */
+#prompt::before,
+#prompt::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
+    background: linear-gradient(45deg, #00c8ff, #06a6a6, #0099ff, #001aff, #a200ff, #ff0055, #ff0000);
+    background-size: 600%;
+    border-radius: 8px;
+    animation: AnimarBorda 20s linear infinite;
+    opacity: .5;
+}
+
+@keyframes AnimarBorda {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: 500%;
+    }
+}
+
+
+#prompt::after {
+    filter: blur(45px);
+}
+
+/* ===========EFEITO RGB PROMPT========== */
+
+/* ========Container Name========== */
+
+.container-prompt #main-name {
+    font-size: 50px;
+    font-weight: 200;
+    font-family: "Prompt";
+    color: #f1f2e8;
+    border-right: 4px solid #f1f2e8ed;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 13.2em;
+    }
+}
+
+.typing-animation {
+    animation: blinkCursor steps(40) 700ms infinite normal, typing steps(40) 4s 1.5s normal both;
+}
+
+#main-name.finished {
+    animation: none;
+    border-right: transparent;
+}
+
+@keyframes blinkCursor {
+    from {
+        border-right-color: #f1f2e8ed;
+    }
+
+    to {
+        border-right-color: transparent;
+    }
+}
+
+/* ================================== */
+
+
+/* =======typing2====================== */
+.container-prompt p {
+    font-family: "Prompt";
+    font-weight: 300;
+    margin-top: 30px;
+    text-shadow: 1px 1px 2px rgb(117, 117, 117);
+    color: #f1f2e8;
+    border-right: 2px solid #f1f2e8ed;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@keyframes typing2 {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 11.5em;
+    }
+}
+
+@keyframes blinkCursor2 {
+    from {
+        border-right-color: #f1f2e8ed;
+    }
+
+    to {
+        border-right-color: transparent;
+    }
+}
+
+#typing-animation2 {
+    visibility: hidden;
+}
+
+#typing-animation2.start {
+    animation: blinkCursor2 steps(40) 700ms infinite normal, typing2 steps(50) 3.5s 1.5s normal both;
+}
+
+/* ========================================= */
+main {
+    background-color: #fefefe;
+}
+
+.container-about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* width: 450px;
+    margin: auto; */
+
+}
+
+#title-about {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-top: 70px;
+    font-weight: 300;
+    letter-spacing: 5px;
+}
+
+.sobre {
+    color: #1d1d1d;
+    width: 100%;
+    height: 100px;
+}
+
+/* 
+#descricao2 {
+    height: 80px;
+} */
+
+#descricao1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #1d1d1d;
+    width: 85%;
+    height: auto;
+    padding: 10px;
+
+}
+
+#descricao1 span {
+    color: #1c2fe1e9;
+    font-weight: bold;
+
+}
+
+.card-lazer {
+    width: 38%;
+    height: 180px;
+    background-color: rgba(224, 224, 224, 0.888);
+    margin-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 0px; */
+    gap: 20px;
+}
+
+.card-lazer p {
+    padding: 10px;
+    color: #1b1a1a;
+    font-family: "Prompt";
+    text-transform: uppercase;
+    font-weight: 200;
+    font-size: 1.2em;
+}
+
+.container-flex-lazer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 23%;
+
+}
+
+.card-lazer img {
+    width: 55px;
+
+}
+
+.container-about h3 {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-size: 30pt;
+    font-weight: 300;
+}
+
+
+.container-about .minha-foto img {
+    width: 200px;
+    height: 200px;
+    background-color: #000;
+    border-radius: 100%;
+    /* margin-left: auto;
+    margin-right: auto; */
+    background-size: cover;
+
+
+}
+
+
+/* =============Container Stacks================ */
+#h3-stacks {
+    color: #1b1a1a;
+    font-family: "Prompt";
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 1rem;
+    margin-top: 5rem;
+    text-align: center;
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stacks {
+    width: 100%;
+    display: grid;
+    grid-gap: 15px;
+    justify-content: center;
+    align-items: center;
+    /* grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);     */
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    align-content: center;
+    background-color: #e9e9e984;
+    padding: 1.5rem;
+    
+}
+
+/* #grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* 
+.container-stacks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    width: 50%;    
+    
+}  */
+
+
+
+.stacks img {
+    width: 55px;
+    -webkit-filter: grayscale(100%);
+    transition: all .5s;
+    /* position: relative; */
+    margin: 0 auto;
+}
+
+
+.stacks img:hover {
+    -webkit-filter: grayscale(0);
+}
+
+/* ===========================================*/
+
+/* ===============Container Works + GRID rua francisco busolo,60========= */
+.works {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rem;
+    height: 1000px;
+    /* background-color: #cdcdcd; */
+    width: 100%;
+    /* text-align: center; */
+    align-items: center;
+    /* padding-left: 6%; */
+}
+
+.works h2 {
+    color: #1b1a1a;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 400;
+    font-size: 18.72px;
+    font-family: 'Prompt';
+    margin-bottom: 3rem;
+    
+}
+
+
+
+
+.works-grade {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    height: 500px;
+    gap: 2rem;
+    justify-content: center;
+    
+    
+}
+
+
+.works-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+    height: 235px;
+    box-shadow: 0px 0px 6px 2px #000;
+}
+
+.works-grade .works-img img {
+    width: 320px;
+    height: 235px;
+}
+
+/* ==================================== */
+
+
+
+/* ===========Footer============= */
+footer {
+    width: 100%;
+    height: 100px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+footer img {
+    width: 30px;
+    -webkit-filter: grayscale(100%);
+}
+
+footer img:hover {
+    -webkit-filter: grayscale(0);
+}
+
+/* ============================== */
+
+
+/* ==============RESPONSIVO=================== */
+
+@media (max-width: 950px) {
+    .navbar-container {
+        display: none;
+    }
+
+    .navbar-colapse {
+        display: flex;
+        position: fixed;
+        z-index: 1;
+    }
+
+    .container-prompt {
+        height: 100vh;
+    }
+
+}
+
+@media (max-width: 930px) {
+    #prompt #main-name {
+        font-size: 40px;
+    }
+
+    #prompt {
+        width: 40em;
+        height: 350px;
+    }
+
+
+}
+
+@media (max-width: 740px) {
+    #prompt #main-name {
+        font-size: 35px;
+    }
+
+    #prompt {
+        width: 32em;
+        height: 300px;
+    }
+
+
+
+
+}
+
+@media (max-width: 600px) {
+    #prompt #main-name {
+        font-size: 23px;
+    }
+
+    #prompt {
+        width: 22em;
+        height: 300px;
+    }
+
+    #prompt p {
+        font-size: 15px;
+    }
+
+}
+
+@media (max-width: 460px) {
+    .container-prompt {
+        height: 100vh;
+    }
+
+    #prompt #main-name {
+        font-size: 17px;
+        font-weight: 400;
+    }
+
+    #prompt {
+        width: 15em;
+        height: 220px;
+    }
+
+    #prompt p {
+        font-size: 14px;
+    }
+
+    .card-lazer {
+        width: 75%;
+    }
+
+    .card-lazer img {
+        width: 40px;
+    }
+
+    .container-about .minha-foto img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .stacks {
+        margin-top: 50px;
+    }
+   
+}
+
+@media (min-width: 280px) {
+    .stacks {
+        height: auto;
+        margin-top: 30px;
+    }
+
+    .card-lazer {
+        padding: 5px;
+        height: 150px;
+    }
+
+    .card-lazer p {
+        font-size: 1em;
+    }
+
+    .card-lazer img {
+        width: 35px;
+    }
+}
+
+@media (max-width: 360px) {
+    #title-about {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .container-prompt {
+        height: 100vh;
+    }
+}
+
+@media (min-width: 375px) {
+    #title-about {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .container-prompt {
+        height: 100vh;
+    }
+
+}
+
+@media (max-width: 411px) {
+    #title-about {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .container-prompt {
+        height: 100vh;
+    }
+}
+
+/* Surface Duo 540 x 720px */
+
+@media (min-width: 540px) {
+    .card-lazer {
+        width: 80%;
+    }
+}
+
+/* 768 x 1024px TABLET */
+@media (min-width: 768px) {
+    #descricao1 {
+        width: 40%;
+    }
+
+    .card-lazer {
+        width: 30%;
+    }
+}
+
+/* 1024 x 600 Portatil Nest Hub */
+@media (min-width: 1024px) {
+    .card-lazer img {
+        width: 55px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .card-lazer img {
+        width: 55px;
+    }
+}
+
+/* 1920 x 1080px Monitores Desktop */
+@media (min-width: 1920px) {
+    #descricao1 {
+        width: 29%;
+        font-size: 1.2em;
+    }
+
+    .card-lazer {
+        width: 30%;
+    }
+
+    .stacks {
+        width: 50%;
+    }
+
+    #title-about {
+        font-size: 2em;
+    }
+}
